@@ -1,0 +1,32 @@
+<h2>Lista de usuarios de DAW:</h2>
+@if(primero){
+    <button (click)="changePrimero(false)">Mostrar los alumnos de segundo</button>
+    <h3>Primero de DAW:</h3>
+    @for(alumnos of daw; track alumnos){
+        @if(alumnos.curso == 'primero'){
+            <ul>
+                <li>{{ alumnos.nombre }}</li>
+                <li>{{ alumnos.apellidos }}</li>
+                <li>{{ alumnos.dni }}</li>
+                <li>{{ alumnos.curso }}</li>
+                <li>{{ alumnos.modulos }}</li>
+                <p>--------------------------</p>
+            </ul>
+        }
+    }
+}@else {
+    <button (click)="changePrimero(true)">Mostrar alumnos de primero</button>
+    <h3>Segundo de DAW:</h3>
+    @for(alumnos of daw; track alumnos){
+        @if(alumnos.curso == 'segundo'){
+            <ul>
+                <li>{{ alumnos.nombre }}</li>
+                <li>{{ alumnos.apellidos }}</li>
+                <li>{{ alumnos.dni }}</li>
+                <li>{{ alumnos.curso }}</li>
+                <li>{{ alumnos.modulos }}</li>
+                <p>--------------------------</p>
+            </ul>
+        }
+    }
+}
