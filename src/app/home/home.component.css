@@ -1,0 +1,86 @@
+body {
+    background-color: #0a0a0a;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor del logo */
+.logo-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.logo-container img {
+    width: 200px;
+}
+
+/* Estilos del encabezado */
+.navbar {
+    background-color: #D32F2F;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #FFD700;
+}
+
+/* Buscador */
+.search-container {
+    margin: 20px 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 60%;
+}
+
+.search-container input {
+    width: 60%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #D32F2F, #F57C00);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.6);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #FFD700;
+    text-shadow: 2px 2px 5px black;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+/* Espacio reservado para el carrusel */
+.carousel-placeholder {
+    width: 100%;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px dashed white;
+}

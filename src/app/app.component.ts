@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EmpleadoComponent } from './empleado/empleado.component';
-import { AlumnadoDAWComponent } from './alumnado-daw/alumnado-daw.component';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
-  imports: [AlumnadoDAWComponent],
+  imports: [HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
