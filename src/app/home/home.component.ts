@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MarvelService } from '../servicios/marvel.service';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,19 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  characters: any;
 
+  constructor(private marvelService: MarvelService) { }
+
+  ngOnInit() {
+    this.marvelService.getCharacters().subscribe(
+      (data: any) => {
+        this.characters = data.data.results;
+      },
+      (error) => {
+        console.error('Error al obtener los personajes', error);
+      }
+    );
+  }
 }

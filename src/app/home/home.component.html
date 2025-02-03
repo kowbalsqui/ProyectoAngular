@@ -1,27 +1,7 @@
-<!-- Logo de Marvel -->
-<div class="logo-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg" alt="Marvel Logo">
-</div>
-
-<!-- Encabezado con enlaces -->
-<div class="navbar">
-    <a href="#">Héroes</a>
-    <a href="#">Cómics</a>
-    <a href="#">Series</a>
-</div>
-
-<!-- Buscador -->
-<div class="search-container">
-    <input type="text" placeholder="Buscar en Marvel...">
-</div>
-
-<!-- Contenido principal -->
-<div class="container">
-    <h1>Bienvenido a Marvel App</h1>
-    <p>Explora el increíble universo de Marvel con nuestra aplicación. Consulta héroes, cómics y más con la API oficial de Marvel.</p>
-
-    <!-- Espacio reservado para el carrusel -->
-    <div class="carousel-placeholder">
-        <p>Aquí irá el carrusel próximamente</p>
-    </div>
-</div>
+<h1>Personajes de Marvel</h1>
+@for (character of characters; track character.id) {
+  <div class="card">
+    <img [src]="character.image" [alt]="character.name">
+    <h3>{{ character.name }}</h3>
+  </div>
+}
