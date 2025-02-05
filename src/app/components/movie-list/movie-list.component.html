@@ -1,0 +1,19 @@
+<h1>Películas Populares</h1>
+
+@for (movie of movies; track movie.id) {
+  <div class="movie-card">
+    <h2>{{ movie.title }}</h2>
+    <p>{{ movie.overview }}</p>
+
+    @if (movie.poster_path) {
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+        alt="{{ movie.title }}"
+      />
+    } @else {
+      <p>No hay imagen disponible</p>
+    }
+  </div>
+} @empty {
+  <p>No se encontraron películas.</p>
+}
