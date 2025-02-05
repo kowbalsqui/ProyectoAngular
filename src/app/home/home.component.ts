@@ -1,25 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { MarvelService } from '../servicios/marvel.service';
+import { MovieService } from '../services/movie.service';
 
 @Component({
   selector: 'app-home',
-  imports: [],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  characters: any;
+  movies: any[] = [];
 
-  constructor(private marvelService: MarvelService) { }
+  constructor(private movieService: MovieService) {}
 
   ngOnInit() {
-    this.marvelService.getCharacters().subscribe(
-      (data: any) => {
-        this.characters = data.data.results;
-      },
-      (error) => {
-        console.error('Error al obtener los personajes', error);
-      }
-    );
+    this.movieService.getPopularMovies().subscribe(data => {
+      this.movies = data.results;
+    }, error => {
+      console.error(error);
+    });
   }
 }

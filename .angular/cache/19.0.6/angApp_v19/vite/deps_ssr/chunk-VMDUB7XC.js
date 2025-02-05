@@ -5,7 +5,7 @@ import {
   DomRendererFactory2,
   EVENT_MANAGER_PLUGINS,
   EventManagerPlugin
-} from "./chunk-FFUTUG3A.js";
+} from "./chunk-7NU4Z5HM.js";
 import {
   DOCUMENT,
   HTTP_ROOT_INTERCEPTOR_FNS,
@@ -16,7 +16,7 @@ import {
   XhrFactory,
   getDOM,
   setRootDomAdapter
-} from "./chunk-63Z6ZKFZ.js";
+} from "./chunk-POODWTRK.js";
 import {
   ALLOW_MULTIPLE_PLATFORMS,
   ANIMATION_MODULE_TYPE,
@@ -47,7 +47,6 @@ import {
   inject,
   makeEnvironmentProviders,
   platformCore,
-  require_cjs,
   setClassMetadata,
   setDocument,
   startMeasuring,
@@ -56,7 +55,10 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-PEAVEDUD.js";
+} from "./chunk-PFSBF4ML.js";
+import {
+  require_cjs
+} from "./chunk-TDK5NIWS.js";
 import {
   __async,
   __objRest,
@@ -21551,4 +21553,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-GA7FCGUK.js.map
+//# sourceMappingURL=chunk-VMDUB7XC.js.map

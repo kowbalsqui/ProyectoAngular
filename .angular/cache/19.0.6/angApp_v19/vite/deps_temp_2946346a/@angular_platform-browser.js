@@ -1,4 +1,3 @@
-import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   CommonModule,
   DOCUMENT,
@@ -10,7 +9,7 @@ import {
   parseCookieValue,
   setRootDomAdapter,
   withHttpTransferCache
-} from "./chunk-63Z6ZKFZ.js";
+} from "./chunk-ZMRW25LW.js";
 import {
   APP_ID,
   ApplicationModule,
@@ -41,6 +40,8 @@ import {
   ViewEncapsulation,
   XSS_SECURITY_URL,
   ZONELESS_ENABLED,
+  __spreadProps,
+  __spreadValues,
   _global,
   _sanitizeHtml,
   _sanitizeUrl,
@@ -68,11 +69,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-PEAVEDUD.js";
-import {
-  __spreadProps,
-  __spreadValues
-} from "./chunk-YHCV7DAQ.js";
+} from "./chunk-VON63CBU.js";
 
 // node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
 var GenericBrowserDomAdapter = class extends DomAdapter {
@@ -1910,45 +1907,45 @@ function provideClientHydration(...features) {
   return makeEnvironmentProviders([typeof ngDevMode !== "undefined" && ngDevMode ? provideZoneJsCompatibilityDetector() : [], withDomHydration(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : withHttpTransferCache({}), providers]);
 }
 var VERSION = new Version("19.0.5");
-
 export {
-  BrowserDomAdapter,
-  BrowserGetTestability,
+  BrowserModule,
+  By,
+  DomSanitizer,
   EVENT_MANAGER_PLUGINS,
   EventManager,
   EventManagerPlugin,
-  SharedStylesHost,
-  REMOVE_STYLES_ON_COMPONENT_DESTROY,
-  DomRendererFactory2,
-  DomEventsPlugin,
-  KeyEventsPlugin,
-  bootstrapApplication,
-  createApplication,
-  provideProtractorTestingSupport,
-  initDomAdapter,
-  INTERNAL_BROWSER_PLATFORM_PROVIDERS,
-  platformBrowser,
-  BrowserModule,
-  Meta,
-  Title,
-  enableDebugTools,
-  disableDebugTools,
-  By,
   HAMMER_GESTURE_CONFIG,
   HAMMER_LOADER,
   HammerGestureConfig,
-  HammerGesturesPlugin,
   HammerModule,
-  DomSanitizer,
-  DomSanitizerImpl,
   HydrationFeatureKind,
-  withNoHttpTransferCache,
+  Meta,
+  REMOVE_STYLES_ON_COMPONENT_DESTROY,
+  Title,
+  VERSION,
+  bootstrapApplication,
+  createApplication,
+  disableDebugTools,
+  enableDebugTools,
+  platformBrowser,
+  provideClientHydration,
+  provideProtractorTestingSupport,
+  withEventReplay2 as withEventReplay,
   withHttpTransferCacheOptions,
   withI18nSupport2 as withI18nSupport,
-  withEventReplay2 as withEventReplay,
   withIncrementalHydration2 as withIncrementalHydration,
-  provideClientHydration,
-  VERSION
+  withNoHttpTransferCache,
+  BrowserDomAdapter as ɵBrowserDomAdapter,
+  BrowserGetTestability as ɵBrowserGetTestability,
+  DomEventsPlugin as ɵDomEventsPlugin,
+  DomRendererFactory2 as ɵDomRendererFactory2,
+  DomSanitizerImpl as ɵDomSanitizerImpl,
+  HammerGesturesPlugin as ɵHammerGesturesPlugin,
+  INTERNAL_BROWSER_PLATFORM_PROVIDERS as ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS,
+  KeyEventsPlugin as ɵKeyEventsPlugin,
+  SharedStylesHost as ɵSharedStylesHost,
+  getDOM as ɵgetDOM,
+  initDomAdapter as ɵinitDomAdapter
 };
 /*! Bundled license information:
 
@@ -1959,4 +1956,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-FFUTUG3A.js.map
+//# sourceMappingURL=@angular_platform-browser.js.map
