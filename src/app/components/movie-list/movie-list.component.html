@@ -1,3 +1,15 @@
+<div class="container my-4">
+  <div class="input-group">
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Buscar película..." 
+      [(ngModel)]="terminoBusqueda"
+    />
+    <button class="btn btn-warning" (click)="buscarPelicula(terminoBusqueda)">🔍 Buscar</button>
+  </div>
+</div>
+
 <h1 style="text-align: center;">Películas Populares</h1>
 
 <div class="movies-container">
