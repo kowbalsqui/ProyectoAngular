@@ -1,31 +1,86 @@
+<!-- 🎬 Carrusel de las 3 primeras películas más populares -->
+@if (topMovies.length > 0) {
+  <div id="popularMoviesCarousel" class="carousel slide mt-3 mb-5 shadow-lg rounded" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-inner">
+      @for (movie of topMovies; track movie.id) {
+        <div class="carousel-item" [class.active]="movie.id == topMovies[0].id">
+          <img 
+            [src]="'https://image.tmdb.org/t/p/w1280' + movie.backdrop_path" 
+            class="d-block w-100 carousel-img" 
+            alt="{{ movie.title }}"
+          />
+          <div class="carousel-caption d-md-block gradient-overlay p-3 rounded">
+            <h5 class="text-white fw-bold">{{ movie.title }}</h5>
+          </div>
+        </div>
+      }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#popularMoviesCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#popularMoviesCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+}
+
+<!-- 🔍 Barra de búsqueda -->
 <div class="container my-4">
   <div class="input-group">
     <input 
       type="text" 
       class="form-control" 
-      placeholder="Buscar película..." 
+      placeholder="Buscar película o actor..." 
       [(ngModel)]="terminoBusqueda"
     />
-    <button class="btn btn-warning" (click)="buscarPelicula(terminoBusqueda)">🔍 Buscar</button>
+    <button class="btn btn-warning" (click)="buscarPelicula(terminoBusqueda)">
+      🔍 Buscar
+    </button>
   </div>
 </div>
 
-<h1 style="text-align: center;">Películas Populares</h1>
+<h1 class="text-center fw-bold">Resultados de la búsqueda</h1>
 
-<div class="movies-container">
-  @for (movie of movies; track movie.id) {
-    <div class="movie-card">
-      <h2>{{ movie.title }}</h2>
-      @if (movie.poster_path) {
-        <img
-          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-          alt="{{ movie.title }}"
-        />
-      } @else {
-        <p>No hay imagen disponible</p>
-      }
-    </div>
-  } @empty {
-    <p style="text-align: center; width: 100%;">No se encontraron películas.</p>
-  }
-</div>
+<!-- 🎭 Lista de actores encontrados -->
+@if (actors.length > 0) {
+  <h2 class="text-center">Actores encontrados</h2>
+  <div class="actors-container">
+    @for (actor of actors; track actor.id) {
+      <div class="actor-card" (click)="getActorMovies(actor.id)">
+        @if (actor.profile_path) {
+          <img 
+            [src]="'https://image.tmdb.org/t/p/w185' + actor.profile_path" 
+            alt="{{ actor.name }}"
+          />
+        } @else {
+          <p>No hay imagen disponible</p>
+        }
+        <h3>{{ actor.name }}</h3>
+      </div>
+    }
+  </div>
+}
+
+<!-- 🎥 Lista de películas encontradas -->
+@if (filteredMovies.length > 0) {
+  <h2 class="text-center">Películas encontradas</h2>
+  <div class="movies-container">
+    @for (movie of filteredMovies; track movie.id) {
+      <div class="movie-card">
+        <h2>{{ movie.title }}</h2>
+        @if (movie.poster_path) {
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+            alt="{{ movie.title }}"
+          />
+        } @else {
+          <p>No hay imagen disponible</p>
+        }
+      </div>
+    }
+  </div>
+} @else {
+  <p class="text-center">No se encontraron resultados.</p>
+}

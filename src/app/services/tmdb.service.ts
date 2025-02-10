@@ -3,29 +3,36 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root', // O 'any' si prefieres
+  providedIn: 'root',
 })
 export class TmdbService {
-  private apiKey = '42eb81be4905a643d9ae9ae6fe4f878c'; // Reemplaza con tu API Key
+  private apiKey = '42eb81be4905a643d9ae9ae6fe4f878c'; // ⚠️ Reemplaza con tu API Key
   private baseUrl = 'https://api.themoviedb.org/3';
 
   constructor(private http: HttpClient) {}
 
-  // Método para obtener películas populares
+  // ✅ Obtener películas populares
   getPopularMovies(): Observable<any> {
-    const url = `${this.baseUrl}/movie/popular?api_key=${this.apiKey}`;
-    return this.http.get(url);
+    return this.http.get(`${this.baseUrl}/movie/popular?api_key=${this.apiKey}`);
   }
 
-  // Método para buscar películas por título
+  // ✅ Buscar películas por título
   searchMovies(query: string): Observable<any> {
-    const url = `${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${query}`;
-    return this.http.get(url);
+    return this.http.get(`${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${query}`);
   }
 
-  // Método para obtener detalles de una película por su ID
+  // ✅ Obtener detalles de una película por ID
   getMovieDetails(movieId: number): Observable<any> {
-    const url = `${this.baseUrl}/movie/${movieId}?api_key=${this.apiKey}`;
-    return this.http.get(url);
+    return this.http.get(`${this.baseUrl}/movie/${movieId}?api_key=${this.apiKey}`);
+  }
+
+  // ✅ **Buscar actores por nombre**
+  searchActors(query: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/search/person?api_key=${this.apiKey}&query=${query}`);
+  }
+
+  // ✅ **Obtener películas en las que aparece un actor**
+  getActorMovies(actorId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/person/${actorId}/movie_credits?api_key=${this.apiKey}`);
   }
 }
