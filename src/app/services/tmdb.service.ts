@@ -35,4 +35,10 @@ export class TmdbService {
   getActorMovies(actorId: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/person/${actorId}/movie_credits?api_key=${this.apiKey}`);
   }
+
+  // ✅ Obtener detalles de un actor (nombre, biografía, imagen, etc.)
+getActorDetails(actorId: number): Observable<any> {
+  return this.http.get(`${this.baseUrl}/person/${actorId}?api_key=${this.apiKey}&language=es-ES`);
+}
+
 }

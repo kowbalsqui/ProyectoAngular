@@ -1,0 +1,36 @@
+<div class="actor-details-container">
+    @if (actor) {
+      <div class="actor-header">
+        @if (actor.profile_path) {
+          <img [src]="'https://image.tmdb.org/t/p/w300' + actor.profile_path" alt="{{ actor.name }}" />
+        }
+        <div class="actor-info">
+          <h1>{{ actor.name }}</h1>
+          <p class="actor-bio">
+            @if (actor.biography.length > 300) {
+              {{ actor.biography.slice(0, 300) + '...' }}
+            } @else {
+              {{ actor.biography || 'No hay biografía disponible.' }}
+            }
+          </p>
+          <button class="more-info-btn">Leer más</button>
+        </div>
+      </div>
+  
+      <h2 class="movie-title">Películas destacadas</h2>
+  
+      <div class="movies-container">
+        @for (movie of actorMovies.slice(0, 10); track movie.id) {
+          <div class="movie-card">
+            <h3>{{ movie.title }}</h3>
+            @if (movie.poster_path) {
+              <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" />
+            } @else {
+              <p>No hay imagen disponible</p>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+  

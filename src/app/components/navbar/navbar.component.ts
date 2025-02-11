@@ -5,18 +5,11 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true, // <-- Si es standalone, agrégalo
+  standalone: true, 
   imports: [FormsModule, CommonModule, RouterModule], // <-- Añade FormsModule aquí
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  terminoBusqueda: string = '';
 
-  @Output() onBuscarPelicula: EventEmitter<string> = new EventEmitter();
-
-  buscarPelicula(event: Event) {
-    event.preventDefault(); // Evita la recarga de la página
-    this.onBuscarPelicula.emit(this.terminoBusqueda);
-  }
 }
