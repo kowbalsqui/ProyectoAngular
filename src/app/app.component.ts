@@ -2,7 +2,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { TmdbService } from './services/tmdb.service';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';  // Asegúrate de importar tu componente de Navbar
@@ -12,7 +11,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';  // Aseg
   standalone: true,
   imports: [
     CommonModule,
-    MovieListComponent,
     FormsModule,
     RouterOutlet,
     NavbarComponent  // Asegúrate de agregar el NavbarComponent en los imports

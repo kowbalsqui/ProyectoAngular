@@ -26,11 +26,11 @@ export class ActorListComponent implements OnInit {
 
   fetchActorDetails(): void {
     this.tmdbService.getActorDetails(this.actorId).subscribe(data => {
-      this.actor = data; // ✅ Guarda los datos del actor
+      this.actor = data; 
     });
 
     this.tmdbService.getActorMovies(this.actorId).subscribe(data => {
-      this.actorMovies = data.cast || []; // ✅ Guarda las películas en las que ha trabajado
+      this.actorMovies = data.cast || []; 
     });
   }
 }

@@ -68,6 +68,7 @@
   <h2 class="text-center">Películas encontradas</h2>
   <div class="movies-container">
     @for (movie of filteredMovies; track movie.id) {
+      <a [routerLink]="['/peli', pelicula.id]" class="movie-card"></a>
       <div class="movie-card">
         <h2>{{ movie.title }}</h2>
         @if (movie.poster_path) {

@@ -13,11 +13,23 @@ export class TmdbService {
 
   // ✅ Obtener películas populares
   getPopularMovies(): Observable<any> {
+
     return this.http.get(`${this.baseUrl}/movie/popular?api_key=${this.apiKey}`);
   }
 
   // ✅ Buscar películas por título
   searchMovies(query: string): Observable<any> {
+    let movies: any[] = [];
+
+    this.http.get(`${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${query}`).subscribe((data: any) => {
+      movies = data.results
+      
+      console.log("arriba"); 
+      console.log(movies);
+      console.log("abajo"); 
+    });
+
+    console.log(movies)
     return this.http.get(`${this.baseUrl}/search/movie?api_key=${this.apiKey}&query=${query}`);
   }
 
