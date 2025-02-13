@@ -68,19 +68,20 @@
   <h2 class="text-center">Películas encontradas</h2>
   <div class="movies-container">
     @for (movie of filteredMovies; track movie.id) {
-      <a [routerLink]="['/peli', pelicula.id]" class="movie-card"></a>
-      <div class="movie-card">
-        <h2>{{ movie.title }}</h2>
-        @if (movie.poster_path) {
-          <img
-            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-            alt="{{ movie.title }}"
-          />
-        } @else {
-          <p>No hay imagen disponible</p>
-        }
-      </div>
-    }
+      <a [routerLink]="['/peli', movie.id]" class="movie-card">
+        <div>
+          <h2>{{ movie.title }}</h2>
+          @if (movie.poster_path) {
+            <img
+              [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+              alt="{{ movie.title }}"
+            />
+          } @else {
+            <p>No hay imagen disponible</p>
+          }
+        </div>
+      </a>
+    }    
   </div>
 } @else {
   <p class="text-center">No se encontraron resultados.</p>

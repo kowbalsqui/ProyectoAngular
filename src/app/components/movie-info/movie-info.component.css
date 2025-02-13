@@ -1,0 +1,85 @@
+/* Contenedor principal */
+.movie-info-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    color: white;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  /* Imagen de la película */
+  .movie-header img {
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Información de la película */
+  .movie-info {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .movie-info h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .movie-info p {
+    font-size: 1.1rem;
+    color: #bbb;
+  }
+  
+  /* Título de los actores */
+  .movie-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    margin-top: 30px;
+  }
+  
+  /* Contenedor de los actores */
+  .actors-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    max-width: 900px;
+    margin: 20px auto;
+  }
+  
+  /* Tarjetas de los actores */
+  .actor-card {
+    background: #2c2c2c;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .actor-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Imagen de los actores */
+  .actor-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Nombre del actor */
+  .actor-card h3 {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    color: white;
+  }
+  
