@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <h2 class="text-center">{{ isRegistering ? '📝 Registro' : '🔑 Iniciar Sesión' }}</h2>
+  
+    <form (ngSubmit)="authenticate()" class="form-group">
+      <label>Email:</label>
+      <input type="email" class="form-control" [(ngModel)]="email" required name="email">
+  
+      <label>Contraseña:</label>
+      <input type="password" class="form-control" [(ngModel)]="password" required name="password">
+  
+      <button type="submit" class="btn btn-success mt-3 w-100">
+        {{ isRegistering ? '📝 Registrar' : '🔑 Iniciar Sesión' }}
+      </button>
+    </form>
+  
+    <button (click)="isRegistering = !isRegistering" class="btn btn-secondary mt-3 w-100">
+      {{ isRegistering ? '¿Ya tienes cuenta? Iniciar Sesión' : '¿No tienes cuenta? Regístrate' }}
+    </button>
+  
+    <p *ngIf="errorMessage" class="text-danger mt-3">{{ errorMessage }}</p>
+  </div>
+  

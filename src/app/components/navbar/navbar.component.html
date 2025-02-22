@@ -1,17 +1,68 @@
 <!-- src/app/components/navbar/navbar.component.html -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
   <div class="container">
-    <a class="navbar-brand" href="#">
-      🎬 <strong>Películas</strong>
+    
+    <!-- 🎬 Logo -->
+    <a class="navbar-brand fw-bold" routerLink="/">
+      🎬 Películas
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+    <!-- Botón hamburguesa para móviles -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- Contenido del navbar -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-center">
+        
+        <!-- 📌 Enlaces generales -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="home">Home</a>
+          <a class="nav-link" routerLink="/home">🏠 Home</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">📩 Contacto</a>
+        </li>
+
+        <!-- ⭐ Favoritos (solo si está logueado) -->
+        @if (isLoggedIn) {
+          <li class="nav-item">
+            <a class="nav-link text-warning fw-bold" routerLink="/favoritos">
+              ⭐ Mis Favoritos
+            </a>
+          </li>
+        }
+
+        <!-- 🔑 Mostrar Login si NO está logueado -->
+        @if (!isLoggedIn) {
+          <li class="nav-item">
+            <a class="btn btn-outline-light px-3 rounded-pill" routerLink="/auth">
+              🔑 Iniciar Sesión
+            </a>
+          </li>
+        }
+
+        <!-- 👤 Mostrar Email + Cerrar Sesión (si está logueado) -->
+        @if (isLoggedIn) {
+          <li class="nav-item">
+            <span class="nav-link text-light fw-bold">
+              👤 {{ userEmail }}
+            </span>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-danger px-3 rounded-pill" (click)="logout()">
+              🚪 Cerrar Sesión
+            </button>
+          </li>
+        }
+
       </ul>
     </div>
   </div>

@@ -26,22 +26,66 @@
   </div>
 }
 
-<!-- 🔍 Barra de búsqueda -->
+<!-- 🔍 Barra de búsqueda y ordenación -->
 <div class="container my-4">
   <div class="input-group">
+    <!-- 📌 Input de búsqueda -->
     <input 
       type="text" 
       class="form-control" 
-      placeholder="Buscar película o actor..." 
+      placeholder="Buscar película..."
       [(ngModel)]="terminoBusqueda"
+      (input)="buscarPelicula(terminoBusqueda)"
     />
+
+    <!-- 🔄 Selector de ordenación -->
+    <select class="form-select" [(ngModel)]="ordenSeleccionado" (change)="ordenarPeliculas()">
+      <option value="">🔄 Ordenar por...</option>
+      <option value="asc">⬆️ A - Z</option>
+      <option value="desc">⬇️ Z - A</option>
+    </select>
+
+    <!-- 🔍 Botón de búsqueda -->
     <button class="btn btn-warning" (click)="buscarPelicula(terminoBusqueda)">
       🔍 Buscar
     </button>
   </div>
 </div>
 
+
 <h1 class="text-center fw-bold">Resultados de la búsqueda</h1>
+
+<!-- 🎥 Lista de películas encontradas -->
+@if (filteredMovies.length > 0) {
+  <h2 class="text-center">Películas encontradas</h2>
+  <div class="movies-container">
+    @for (movie of filteredMovies; track movie.id) {
+      <div class="movie-card">
+        <a [routerLink]="['/peli', movie.id]">
+          <h2>{{ movie.title }}</h2>
+          @if (movie.poster_path) {
+            <img
+              [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+              alt="{{ movie.title }}"
+            />
+          } @else {
+            <p>No hay imagen disponible</p>
+          }
+        </a>
+
+        <!-- ⭐ Botón de Favoritos -->
+        <button 
+          class="btn btn-warning mt-2"
+          (click)="toggleFavorito(movie)"
+        >
+          {{ esFavorito(movie.id) ? '❌ Quitar de Favoritos' : '⭐ Añadir a Favoritos' }}
+        </button>
+      </div>
+    }
+  </div>
+} @else {
+  <p class="text-center">No se encontraron resultados.</p>
+}
 
 <!-- 🎭 Lista de actores encontrados -->
 @if (actors.length > 0) {
@@ -61,28 +105,4 @@
       </a>
     }
   </div>
-}
-
-<!-- 🎥 Lista de películas encontradas -->
-@if (filteredMovies.length > 0) {
-  <h2 class="text-center">Películas encontradas</h2>
-  <div class="movies-container">
-    @for (movie of filteredMovies; track movie.id) {
-      <a [routerLink]="['/peli', movie.id]" class="movie-card">
-        <div>
-          <h2>{{ movie.title }}</h2>
-          @if (movie.poster_path) {
-            <img
-              [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-              alt="{{ movie.title }}"
-            />
-          } @else {
-            <p>No hay imagen disponible</p>
-          }
-        </div>
-      </a>
-    }    
-  </div>
-} @else {
-  <p class="text-center">No se encontraron resultados.</p>
 }

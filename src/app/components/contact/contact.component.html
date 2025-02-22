@@ -1,0 +1,44 @@
+<div class="container mt-4">
+  <h2>📩 Contacto</h2>
+  <form [formGroup]="contactForm" (ngSubmit)="enviarCorreo()">
+    
+    <!-- 📝 Nombre -->
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre">
+
+      <!-- ⚠️ Mensaje de error con @if -->
+      @if (contactForm.get('nombre')?.invalid && contactForm.get('nombre')?.touched) {
+        <small class="text-danger">Nombre es obligatorio y debe tener al menos 3 caracteres.</small>
+      }
+    </div>
+
+    <!-- 📧 Correo Electrónico -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo Electrónico</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+
+      <!-- ⚠️ Mensaje de error con @if -->
+      @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+        <small class="text-danger">Ingresa un correo válido.</small>
+      }
+    </div>
+
+    <!-- ✍️ Mensaje -->
+    <div class="mb-3">
+      <label for="mensaje" class="form-label">Mensaje</label>
+      <textarea class="form-control" id="mensaje" formControlName="mensaje" rows="4"></textarea>
+
+      <!-- ⚠️ Mensaje de error con @if -->
+      @if (contactForm.get('mensaje')?.invalid && contactForm.get('mensaje')?.touched) {
+        <small class="text-danger">El mensaje debe tener al menos 10 caracteres.</small>
+      }
+    </div>
+
+    <!-- 📩 Botón Enviar -->
+    <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">
+      Enviar
+    </button>
+
+  </form>
+</div>

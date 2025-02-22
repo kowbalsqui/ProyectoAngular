@@ -14,7 +14,6 @@ export class TmdbService {
 
   // ✅ Obtener películas populares
   getPopularMovies(): Observable<any> {
-
     return this.http.get(`${this.baseUrl}/movie/popular?api_key=${this.apiKey}`);
   }
 
