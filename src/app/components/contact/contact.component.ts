@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
-  standalone: true, // 🔥 Indica que es un componente independiente
-  imports: [CommonModule, ReactiveFormsModule], // ✅ Importamos ReactiveFormsModule aquí
+  standalone: true, 
+  imports: [CommonModule, ReactiveFormsModule], 
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
@@ -21,6 +21,22 @@ export class ContactComponent {
     });
   }
 
+  // 📧 Método para abrir el cliente de correo con `mailto:`
+  abrirCorreo() {
+    if (this.contactForm.valid) {
+      const nombre = encodeURIComponent(this.contactForm.value.nombre);
+      const email = encodeURIComponent(this.contactForm.value.email);
+      const mensaje = encodeURIComponent(this.contactForm.value.mensaje);
+
+      console.log("abriendo")
+
+      const mailtoLink = `mailto:pepefolson@gmail.com?subject=Consulta de ${nombre}&body=Nombre: ${nombre}%0D%0ACorreo: ${email}%0D%0AMensaje: ${mensaje}`;
+
+      window.location.href = mailtoLink; // 🔥 Esto abrirá el cliente de correo con los datos rellenados
+    }
+  }
+
+  // 📩 Enviar correo con EmailJS
   enviarCorreo() {
     if (this.contactForm.valid) {
       this.emailService.enviarCorreo(this.contactForm.value).then(
