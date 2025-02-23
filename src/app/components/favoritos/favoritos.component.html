@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <h1 class="text-center text-primary">⭐ Mis Películas Favoritas</h1>
+  
+    @if (favoritos.length > 0) {
+      <div class="row">
+        @for (movie of favoritos; track movie.id) {
+          <div class="col-md-4 col-lg-3 col-sm-6 mb-4">
+            <div class="card shadow-lg h-100">
+              <!-- 🎬 Imagen de la película -->
+              @if (movie.poster_path) {
+                <img
+                  [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+                  class="card-img-top rounded-top"
+                  alt="{{ movie.title }}"
+                />
+              } @else {
+                <div class="card-body text-center">
+                  <p>No hay imagen disponible</p>
+                </div>
+              }
+  
+              <!-- 📄 Cuerpo de la tarjeta -->
+              <div class="card-body text-center">
+                <h5 class="card-title text-dark fw-bold">{{ movie.title }}</h5>
+              </div>
+  
+              <!-- ❌ Botón para eliminar -->
+              <div class="card-footer text-center">
+                <button class="btn btn-danger w-100" (click)="eliminarFavorito(movie.id)">
+                  ❌ Quitar de Favoritos
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="alert alert-warning text-center mt-4">
+        <p>No tienes películas favoritas aún.</p>
+      </div>
+    }
+  </div>
+  
